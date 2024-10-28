@@ -9,6 +9,7 @@ import { Transacao, TransacaoService } from '../transacao.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './transacao-edit.component.html',
+  styleUrl:'./transacao-edit.component.css'
 })
 export class TransacaoEditComponent implements OnInit {
   transacaoForm: FormGroup;

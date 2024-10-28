@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransacaoController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/transacoes', [TransacaoController::class, 'index']);
 Route::post('/transacoes', [TransacaoController::class, 'store']);

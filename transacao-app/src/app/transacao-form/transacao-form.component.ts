@@ -9,6 +9,7 @@ import { Transacao, TransacaoService } from '../transacao.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './transacao-form.component.html',
+  styleUrl:'./transacao-form.component.css'
 })
 export class TransacaoFormComponent implements OnInit {
   transacaoForm: FormGroup;
@@ -36,4 +37,9 @@ export class TransacaoFormComponent implements OnInit {
       });
     }
   }
+
+  goHome(){
+    this.router.navigate(['/']);
+  }
+
 }

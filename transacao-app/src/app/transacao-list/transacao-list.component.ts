@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './transacao-list.component.html',
+  styleUrl:'./transacao-list.component.css'
 })
 export class TransacaoListComponent implements OnInit {
   transacoes: Transacao[] = [];
@@ -33,4 +34,9 @@ export class TransacaoListComponent implements OnInit {
   editTransacao(id: number) {
     this.router.navigate(['/edit/', id]);
   }
+
+  createForm(){
+    this.router.navigate(['/transacao/criar']);
+  }
+
 }

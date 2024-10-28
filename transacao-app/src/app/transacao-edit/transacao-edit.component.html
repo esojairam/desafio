@@ -1,4 +1,13 @@
-<form [formGroup]="transacaoForm" (ngSubmit)="onSubmit()">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Editar Transação</title>
+  <link rel="stylesheet" href="/transacao-app/src/app/transacao-edit/transacao-edit.component.css">
+</head>
+<body>
+  <form [formGroup]="transacaoForm" (ngSubmit)="onSubmit()">
+    <h1>Editar Transação</h1> <!-- Título adicionado para a centralização -->
+    
     <label for="nome">Nome da Transação:</label>
     <input id="nome" formControlName="nome" required>
   
@@ -15,9 +24,9 @@
     <label for="categoria">Categoria:</label>
     <input id="categoria" formControlName="categoria" required>
   
-    <label for="valor">Valor:</label>
+    <label for="valor">Valor: ( Maior que 0 ! )</label>
     <input id="valor" type="number" formControlName="valor" required>
   
     <button type="submit" [disabled]="transacaoForm.invalid">Atualizar</button>
   </form>
-  
+</body>
