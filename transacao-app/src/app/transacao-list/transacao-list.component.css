@@ -103,3 +103,23 @@ button:disabled {
 .edit:hover {
     background-color: #275570; /* Cor ao passar o mouse no botão de editar */
 }
+
+.filtro {
+    margin-bottom: 10px;
+    display: flex; /* Alinha os botões em uma linha */
+    gap: 5px; /* Espaço entre os botões */
+}
+
+.filtro button {
+    padding: 8px 12px;
+    background-color: #2c6383;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease;
+}
+
+.filtro button:hover {
+    background-color: #275570;
+}

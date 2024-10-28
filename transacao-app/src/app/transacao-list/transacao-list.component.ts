@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class TransacaoListComponent implements OnInit {
   transacoes: Transacao[] = [];
+  transacoesFiltradas: any[] = [];
 
   constructor(private transacaoService: TransacaoService, private router: Router) {}
 
@@ -19,9 +20,18 @@ export class TransacaoListComponent implements OnInit {
     this.loadTransacoes();
   }
 
+  filtrarTransacoes(tipo: string): void {
+    if (tipo === 'todos') {
+      this.transacoesFiltradas = this.transacoes;
+    } else {
+      this.transacoesFiltradas = this.transacoes.filter(transacao => transacao.tipo === tipo);
+    }
+  }
+
   loadTransacoes() {
-    this.transacaoService.getTransacoes().subscribe(transacoes => {
-      this.transacoes = transacoes;
+    this.transacaoService.getTransacoes().subscribe((data: any[]) => {
+      this.transacoes = data;
+      this.transacoesFiltradas = data; // Inicialmente exibe todas as transações
     });
   }
 

@@ -1,11 +1,12 @@
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Transações</title>
-  <link rel="stylesheet" href="/transacao-app/src/app/transacao-list/transacao-list.component.css">
-</head>
 <body>
   <h2>Lista de Transações</h2>
+  
+  <div class="filtro">
+    <button (click)="filtrarTransacoes('todos')">Todos</button>
+    <button (click)="filtrarTransacoes('despesa')">Despesas</button>
+    <button (click)="filtrarTransacoes('receita')">Receitas</button>
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -18,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let transacao of transacoes">
+      <tr *ngFor="let transacao of transacoesFiltradas">
         <td>{{ transacao.nome }}</td>
         <td>{{ transacao.data | date }}</td>
         <td>{{ transacao.tipo }}</td>
