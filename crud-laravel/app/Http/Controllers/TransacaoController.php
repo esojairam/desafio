@@ -54,4 +54,3 @@ class TransacaoController extends Controller
         return response()->noContent();
     }
 }
-

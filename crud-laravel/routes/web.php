@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TransacaoController;
 use Illuminate\Support\Facades\Route;
+
 // use Illuminate\Http\Request;
 
 Route::get('/', function () {
@@ -13,4 +14,3 @@ Route::get('/', function () {
 // Route::get('/transacoes/{id}', [TransacaoController::class, 'show']);
 // Route::put('/transacoes/{id}', [TransacaoController::class, 'update']);
 // Route::delete('/transacoes/{id}', [TransacaoController::class, 'destroy']);
-

@@ -8,13 +8,16 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './transacao-list.component.html',
-  styleUrl:'./transacao-list.component.css'
+  styleUrl: './transacao-list.component.css',
 })
 export class TransacaoListComponent implements OnInit {
   transacoes: Transacao[] = [];
   transacoesFiltradas: any[] = [];
 
-  constructor(private transacaoService: TransacaoService, private router: Router) {}
+  constructor(
+    private transacaoService: TransacaoService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadTransacoes();
@@ -24,7 +27,9 @@ export class TransacaoListComponent implements OnInit {
     if (tipo === 'todos') {
       this.transacoesFiltradas = this.transacoes;
     } else {
-      this.transacoesFiltradas = this.transacoes.filter(transacao => transacao.tipo === tipo);
+      this.transacoesFiltradas = this.transacoes.filter(
+        (transacao) => transacao.tipo === tipo
+      );
     }
   }
 
@@ -45,8 +50,7 @@ export class TransacaoListComponent implements OnInit {
     this.router.navigate(['/edit/', id]);
   }
 
-  createForm(){
+  createForm() {
     this.router.navigate(['/transacao/criar']);
   }
-
 }

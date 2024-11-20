@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Transacao, TransacaoService } from '../transacao.service';
@@ -9,7 +14,7 @@ import { Transacao, TransacaoService } from '../transacao.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './transacao-edit.component.html',
-  styleUrl:'./transacao-edit.component.css'
+  styleUrl: './transacao-edit.component.css',
 })
 export class TransacaoEditComponent implements OnInit {
   transacaoForm: FormGroup;
@@ -36,16 +41,19 @@ export class TransacaoEditComponent implements OnInit {
   }
 
   loadTransacao() {
-    this.transacaoService.getTransacao(this.id).subscribe(transacao => {
+    this.transacaoService.getTransacao(this.id).subscribe((transacao) => {
+      transacao.valor = Math.abs(transacao.valor);
       this.transacaoForm.patchValue(transacao);
     });
   }
 
   onSubmit() {
     if (this.transacaoForm.valid) {
-      this.transacaoService.updateTransacao(this.id, this.transacaoForm.value).subscribe(() => {
-        this.router.navigate(['/transacoes']);
-      });
+      this.transacaoService
+        .updateTransacao(this.id, this.transacaoForm.value)
+        .subscribe(() => {
+          this.router.navigate(['/transacoes']);
+        });
     }
   }
 }

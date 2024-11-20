@@ -12,19 +12,19 @@ export interface Transacao {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TransacaoService {
-  private apiUrl = 'http://localhost:8000/api'; 
+  private apiUrl = 'http://localhost:8000/api';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getTransacoes(): Observable<Transacao[]> {
     return this.http.get<Transacao[]>(`${this.apiUrl}/transacoes`);
   }
 
   createTransacao(transacao: Transacao): Observable<Transacao> {
-    return this.http.post<Transacao>(`${this.apiUrl}/transacoes`,transacao);
+    return this.http.post<Transacao>(`${this.apiUrl}/transacoes`, transacao);
   }
 
   getTransacao(id: number): Observable<Transacao> {
@@ -32,7 +32,10 @@ export class TransacaoService {
   }
 
   updateTransacao(id: number, transacao: Transacao): Observable<Transacao> {
-    return this.http.put<Transacao>(`${this.apiUrl}/transacoes/${id}`, transacao);
+    return this.http.put<Transacao>(
+      `${this.apiUrl}/transacoes/${id}`,
+      transacao
+    );
   }
 
   deleteTransacao(id: number): Observable<void> {

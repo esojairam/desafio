@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transacao extends Model
 {
-    protected $fillable = ['nome','data','tipo','categoria','valor'];
+    protected $fillable = ['nome', 'data', 'tipo', 'categoria', 'valor'];
 
     public function setValorAttribute($value)
     {

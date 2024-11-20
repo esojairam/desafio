@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Transacao, TransacaoService } from '../transacao.service';
@@ -9,7 +14,7 @@ import { Transacao, TransacaoService } from '../transacao.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './transacao-form.component.html',
-  styleUrl:'./transacao-form.component.css'
+  styleUrl: './transacao-form.component.css',
 })
 export class TransacaoFormComponent implements OnInit {
   transacaoForm: FormGroup;
@@ -32,14 +37,15 @@ export class TransacaoFormComponent implements OnInit {
 
   onSubmit() {
     if (this.transacaoForm.valid) {
-      this.transacaoService.createTransacao(this.transacaoForm.value).subscribe(() => {
-        this.router.navigate(['/transacoes']);
-      });
+      this.transacaoService
+        .createTransacao(this.transacaoForm.value)
+        .subscribe(() => {
+          this.router.navigate(['/transacoes']);
+        });
     }
   }
 
-  goHome(){
+  goHome() {
     this.router.navigate(['/']);
   }
-
 }

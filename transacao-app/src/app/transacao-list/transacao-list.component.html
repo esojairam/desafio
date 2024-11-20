@@ -1,6 +1,6 @@
 <body>
   <h2>Lista de Transações</h2>
-  
+
   <div class="filtro">
     <button (click)="filtrarTransacoes('todos')">Todos</button>
     <button (click)="filtrarTransacoes('despesa')">Despesas</button>
@@ -26,12 +26,18 @@
         <td>{{ transacao.categoria }}</td>
         <td>{{ transacao.valor }}</td>
         <td>
-          <button class="edit" (click)="editTransacao(transacao.id!)">Editar</button>
-          <button class="delete" (click)="deleteTransacao(transacao.id!)">Deletar</button>
+          <button class="edit" (click)="editTransacao(transacao.id!)">
+            Editar
+          </button>
+          <button class="delete" (click)="deleteTransacao(transacao.id!)">
+            Deletar
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
-  <br><br>
-  <button class="create" (click)="createForm()">Cadastrar Nova Transação</button>
+  <br /><br />
+  <button class="create" (click)="createForm()">
+    Cadastrar Nova Transação
+  </button>
 </body>
